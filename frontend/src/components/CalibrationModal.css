@@ -1,0 +1,130 @@
+/* Calibration modal — reusa custom-confirm-* pero ensancha para el grid */
+.calibration-modal {
+  max-width: 720px !important;
+  width: 90vw;
+}
+
+.calibration-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+  max-height: 50vh;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.calibration-row {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.calibration-row.calibration-collision {
+  border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.06);
+}
+
+.calibration-speaker {
+  flex: 0 0 130px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calibration-speaker-name {
+  font-weight: 600;
+  font-family: 'Consolas', monospace;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.calibration-conf {
+  font-size: 10px;
+}
+.calibration-conf.low { color: #f6a33a; }
+.calibration-conf.ok  { color: var(--success); }
+
+.calibration-play {
+  margin-top: 4px;
+  padding: 4px 8px;
+  font-size: 11px;
+  background: rgba(91, 110, 245, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(91, 110, 245, 0.3);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.calibration-play:disabled { opacity: 0.55; cursor: not-allowed; }
+.calibration-play:not(:disabled):hover { background: rgba(91, 110, 245, 0.22); }
+
+.calibration-positions {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.calibration-thumb {
+  position: relative;
+  padding: 0;
+  width: 70px;
+  height: 88px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.12s;
+}
+
+.calibration-thumb:hover { transform: scale(1.05); border-color: var(--border); }
+
+.calibration-thumb.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91, 110, 245, 0.25);
+}
+
+.calibration-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.calibration-thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: var(--text-muted);
+}
+
+.calibration-thumb-label {
+  position: absolute;
+  bottom: 2px;
+  right: 3px;
+  font-size: 9px;
+  padding: 1px 5px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border-radius: 3px;
+  font-family: 'Consolas', monospace;
+}
+
+.calibration-warning {
+  margin: 8px 0 0 0;
+  padding: 6px 10px;
+  font-size: 11px;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 6px;
+}

@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Node / frontend
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Database / runtime
+*.db
+*.sqlite
+*.sqlite3
+backend/uploads/
+
+# Artefactos de prueba
+scripts/test_results.json
+pipeline_status.json
+
+# Editor / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini

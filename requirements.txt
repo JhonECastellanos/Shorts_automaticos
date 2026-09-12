@@ -1,0 +1,59 @@
+# ── Transcripción ──────────────────────────────────────────────
+faster-whisper==1.1.1
+
+# ── Análisis IA ─────────────────────────────────────────────────
+google-genai>=1.0.0
+httpx>=0.27.0
+
+# ── Descarga de videos ─────────────────────────────────────────
+yt-dlp>=2024.11.18
+
+# ── Diarización de speakers ────────────────────────────────────
+pyannote.audio>=3.3.2
+torch>=2.2.0
+torchaudio>=2.2.0
+
+# ── Face tracking / crop dinámico ──────────────────────────────
+mediapipe>=0.10.14
+opencv-python>=4.10.0
+
+# ── FFmpeg binding ─────────────────────────────────────────────
+ffmpeg-python>=0.2.0
+
+# ── Config y CLI ───────────────────────────────────────────────
+python-dotenv>=1.0.1
+pyyaml>=6.0.2
+click>=8.1.8
+rich>=13.9.4
+
+# ── Utilidades ─────────────────────────────────────────────────
+numpy>=1.26.0
+scipy>=1.12.0
+# ── Backend web ────────────────────────────────────────────────
+fastapi>=0.115.0
+uvicorn>=0.32.0
+python-multipart>=0.0.12
+
+# ── Exportación documentos ─────────────────────────────────────
+python-docx>=1.1.0
+
+# ── Configuración validada (Pydantic Settings) ─────────────────
+pydantic-settings>=2.3.0
+
+# ── Base de datos ──────────────────────────────────────────────
+sqlalchemy>=2.0.36
+alembic>=1.13.3
+psycopg2-binary>=2.9.9
+
+# ── Retries y resiliencia ──────────────────────────────────────
+tenacity>=9.0.0
+
+# ── Logging estructurado ───────────────────────────────────────
+loguru>=0.7.2
+
+# ── Rate limiting ──────────────────────────────────────────────
+slowapi>=0.1.9
+
+# ── Autenticación JWT ──────────────────────────────────────────
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4

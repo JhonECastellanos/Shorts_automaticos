@@ -1,0 +1,268 @@
+/* ── VideoInput: barra horizontal compacta ─────────────────── */
+.video-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.video-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.vi-field {
+  height: 34px;
+  padding: 0 10px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 13px;
+  transition: border-color 0.15s;
+}
+.vi-field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.vi-field::placeholder { color: var(--text-muted); }
+
+.vi-project { width: 100px; flex-shrink: 0; }
+.vi-episode { width: 80px; flex-shrink: 0; }
+.vi-source  { flex: 1; min-width: 0; }
+
+/* Selector de paso inicial */
+.vi-from-step {
+  height: 34px;
+  padding: 0 8px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  max-width: 140px;
+}
+.vi-from-step:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Selector de modelo IA */
+.vi-ai-model {
+  height: 34px;
+  padding: 0 8px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  max-width: 180px;
+}
+.vi-ai-model:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Duración mínima/máxima */
+.vi-duration {
+  height: 34px;
+  width: 60px;
+  padding: 0 6px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 12px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.vi-duration:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Selector de provider de diarización */
+.vi-diarization-provider {
+  height: 34px;
+  padding: 0 8px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 12px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  max-width: 180px;
+}
+.vi-diarization-provider:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.vi-mode-toggle {
+  display: flex;
+  gap: 2px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 3px;
+  flex-shrink: 0;
+}
+.vi-mode-toggle button {
+  width: 28px;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.vi-mode-toggle button.active {
+  background: var(--accent);
+}
+.vi-mode-toggle button:hover:not(.active) {
+  background: var(--bg-hover);
+}
+
+.vi-submit {
+  height: 34px;
+  padding: 0 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity 0.15s;
+}
+.vi-submit:disabled {
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.submit-btn:not(:disabled):hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: grayscale(1);
+}
+
+.vi-hint {
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #f6a33a;
+  background: rgba(246, 163, 58, 0.08);
+  border: 1px solid rgba(246, 163, 58, 0.3);
+  border-radius: 6px;
+  align-self: flex-start;
+  animation: vi-hint-in 0.18s ease;
+}
+
+@keyframes vi-hint-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.submit-btn--pending {
+  opacity: 0.85;
+}
+
+/* ── Custom Confirm Overlay ── */
+.custom-confirm-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+.custom-confirm-modal {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.confirm-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.custom-confirm-modal h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.custom-confirm-modal p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.custom-confirm-modal strong {
+  color: var(--accent);
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.confirm-btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.confirm-btn.cancel {
+  background: var(--bg-secondary);
+  color: var(--text-light);
+  border: 1px solid var(--border);
+}
+.confirm-btn.cancel:hover { background: var(--border); }
+
+.confirm-btn.accept {
+  background: var(--accent);
+  color: white;
+}
+.confirm-btn.accept:hover { background: var(--accent-hover); }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.vi-submit:not(:disabled):hover {
+  opacity: 0.85;
+}

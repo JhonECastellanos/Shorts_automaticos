@@ -1,0 +1,294 @@
+/* El componente usa la clase .panel de index.css */
+.shorts-list { height: 100%; display: flex; flex-direction: column; overflow: hidden; }
+.shorts-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  min-height: 36px;
+}
+.shorts-list-header h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+.shorts-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.short-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 11px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+  border-left: 3px solid transparent;
+}
+.short-card:hover { border-color: var(--accent); background: var(--bg-hover); }
+.short-card.selected { border-color: var(--accent); background: rgba(91,110,245,0.08); }
+
+/* ── Tier colors ── */
+.short-card.tier-gold {
+  border-left-color: #FFD700;
+  background: rgba(255, 215, 0, 0.06);
+}
+.short-card.tier-gold:hover { background: rgba(255, 215, 0, 0.12); }
+.short-card.tier-silver {
+  border-left-color: #C0C0C0;
+  background: rgba(192, 192, 192, 0.05);
+}
+.short-card.tier-silver:hover { background: rgba(192, 192, 192, 0.10); }
+.short-card.tier-bronze {
+  border-left-color: #CD7F32;
+  background: rgba(205, 127, 50, 0.05);
+}
+.short-card.tier-bronze:hover { background: rgba(205, 127, 50, 0.10); }
+.short-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.short-rank {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent);
+}
+.short-topic { font-weight: 600; font-size: 12px; margin-bottom: 3px; }
+.short-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.short-hook {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-style: italic;
+  border-left: 2px solid var(--accent);
+  padding-left: 7px;
+  margin-top: 5px;
+  opacity: 0.8;
+}
+
+.analyzing-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.8;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.analyzing-state span {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+.btn-export-all {
+  font-size: 11px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-export-all:hover { border-color: var(--accent); background: var(--bg-hover); }
+.btn-export-all:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-delete-short {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0 2px;
+  opacity: 0.4;
+  transition: opacity 0.15s;
+}
+.btn-delete-short:hover { opacity: 1; }
+.short-card .short-header { gap: 6px; }
+
+/* ── Checkbox selection ── */
+.short-checkbox {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.short-card.deselected {
+  opacity: 0.45;
+  filter: grayscale(0.5);
+}
+.short-card.deselected:hover { opacity: 0.7; }
+.shorts-select-badge { user-select: none; }
+
+/* ── Tier legend ── */
+.tier-legend {
+  display: flex;
+  gap: 12px;
+  padding: 4px 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.tier-badge { font-size: 12px; }
+
+/* ── Duration badge semáforo ── */
+.dur-badge {
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.dur-ok { background: rgba(76,175,80,0.18); color: #66bb6a; }
+.dur-warn { background: rgba(255,193,7,0.18); color: #ffc107; }
+.dur-bad { background: rgba(244,67,54,0.18); color: #ef5350; }
+
+/* ── Speaker tag ── */
+.speaker-tag {
+  background: rgba(91,110,245,0.12);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* ── Score breakdown bars ── */
+.score-breakdown {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.score-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.score-label {
+  font-size: 9px;
+  color: var(--text-muted);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.score-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.fill-base { background: #5b6ef5; }
+.fill-keyword { background: #ffc107; }
+.fill-hook { background: #66bb6a; }
+.fill-dur { background: #ce93d8; }
+
+/* ── Trend score badge ── */
+.trend-score {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+.trend-gold { background: rgba(255, 215, 0, 0.2); color: #FFD700; }
+.trend-silver { background: rgba(192, 192, 192, 0.2); color: #C0C0C0; }
+.trend-bronze { background: rgba(205, 127, 50, 0.2); color: #CD7F32; }
+.trend-normal { background: rgba(140, 140, 140, 0.15); color: var(--text-muted); }
+
+.tier-badge {
+  margin-right: 3px;
+  font-size: 13px;
+}
+
+/* ── Category tags ── */
+.short-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 5px;
+}
+.short-tags .tag {
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: rgba(91, 110, 245, 0.12);
+  color: var(--accent);
+  text-transform: capitalize;
+}
+
+/* Botón "Calibrar voces" en el header */
+.btn-calib {
+  padding: 4px 10px;
+  font-size: 11px;
+  background: rgba(246, 163, 58, 0.12);
+  color: #f6a33a;
+  border: 1px solid rgba(246, 163, 58, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.12s;
+  margin-right: 6px;
+}
+.btn-calib:hover { background: rgba(246, 163, 58, 0.22); transform: scale(1.03); }
+
+/* Badge "Borrador" (draft low-res) */
+.badge.draft {
+  background: rgba(246, 163, 58, 0.15);
+  color: #f6a33a;
+  border: 1px solid rgba(246, 163, 58, 0.35);
+  font-size: 9px;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ── Gating: edit no completado ── */
+.shorts-gating-banner {
+  margin: 6px 8px 8px 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  color: #f6a33a;
+  background: rgba(246, 163, 58, 0.08);
+  border: 1px solid rgba(246, 163, 58, 0.28);
+  border-radius: 6px;
+  line-height: 1.4;
+}
+.short-card.not-playable {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: saturate(0.6);
+}
+.short-card.not-playable:hover { transform: none; }

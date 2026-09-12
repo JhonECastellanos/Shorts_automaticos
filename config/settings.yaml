@@ -1,0 +1,74 @@
+whisper:
+  model: small
+  language: es
+  word_timestamps: true
+  vad_filter: true
+  device: auto
+  compute_type: auto
+analysis:
+  models:
+  - gemini-2.5-flash
+  - gemini-2.5-flash-lite
+  - gemini-3-flash-preview
+  - gemini-3.1-flash-lite-preview
+  - gemini-2.5-pro
+  - gemini-3.1-pro-preview
+  - gemma-3-27b-it
+  custom_models: []
+  default_model: gemma-3-27b-it
+  min_duration_sec: 61
+  max_duration_sec: 180
+  min_moments: 35
+  max_moments: 35
+  min_score: 3.5
+  chunk_overlap_sec: 120
+  max_tokens_per_chunk: 28000
+diarization:
+  provider: pyannote
+  min_speakers: 2
+  max_speakers: 5
+  # expected_speakers: número fijo de speakers (opcional). Cuando se define,
+  # el clustering MFCC usa ese K en lugar de auto-detectar con silhouette.
+  # Útil para podcasts donde sabes que son N personas fijas.
+  expected_speakers: 4
+  min_segment_duration: 0.5
+  face_confidence: 0.25
+  face_model: mediapipe
+  face_track_fps: 5.0
+asd:
+  model: auto
+  window_seconds: 0.4
+cmia:
+  min_confidence: 0.5
+crop:
+  output_width: 1080
+  output_height: 1920
+  face_padding: 0.35
+  smoothing_window: 15
+  fallback_to_zone: true
+export:
+  video_codec: libx264
+  audio_codec: aac
+  crf: 18
+  preset: slow
+  audio_bitrate: 192k
+  subtitle_font: Arial
+  subtitle_fontsize: 28
+  subtitle_color: white
+  subtitle_outline_color: black
+  subtitle_outline_width: 2
+  subtitle_position: bottom
+  subtitle_margin_v: 80
+camera_switching:
+  enabled: true
+  min_segment_sec: 1.5
+  transition_type: tiktok_zoom
+  transition_duration_ms: 250
+  max_speakers: 5
+output:
+  root: ""
+  copy_original: true
+processing:
+  device: auto
+  ffmpeg_encoder: auto
+  ffmpeg_preset: auto
